@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Beta - Download Now</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .logo-img img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background-image: url('assets/cover.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(0, 212, 255, 1);
+            }
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #00d4ff, #0099ff);
+            color: #fff;
+            padding: 18px 60px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
+            background: linear-gradient(45deg, #0099ff, #00d4ff);
+        }
+
+        /* Description Section */
+        .description {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+            text-align: center;
+        }
+
+        .description h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #00d4ff;
+        }
+
+        .description p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #c0c0c0;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95));
+        }
+
+        .reviews h2 {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ff00ff;
+        }
+
+        .review-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #ff00ff;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 0, 255, 0.3);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .review-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .review-stars {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #d0d0d0;
+            font-style: italic;
+        }
+
+        /* Fixed Social Icons */
+        .social-icon {
+            position: fixed;
+            bottom: 30px;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .instagram-icon {
+            right: 30px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .gmail-icon {
+            left: 30px;
+            background: linear-gradient(45deg, #ea4335, #fbbc05, #34a853, #4285f4);
+        }
+
+        .social-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        footer p {
+            font-size: 16px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .logo-img img {
+                height: 35px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .download-btn {
+                padding: 15px 40px;
+                font-size: 16px;
+            }
+
+            .description,
+            .reviews {
+                padding: 60px 20px;
+            }
+
+            .description h2,
+            .reviews h2 {
+                font-size: 32px;
+            }
+
+            .social-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-text">Roblox Beta</div>
+        <div class="logo-img">
+            <img src="assets/logo.jpg" alt="Roblox Beta Logo">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Roblox Beta</h1>
+            <p>Experience the future of gaming today. Get early access to groundbreaking features, exclusive content,
+                and be part of shaping the next generation of Roblox.</p>
+            <a href="https://google.com" class="download-btn">Download Roblox Beta</a>
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="description">
+        <h2>What is Roblox Beta?</h2>
+        <p>Roblox Beta is your gateway to experiencing the latest innovations before anyone else. As a beta tester,
+            you'll get exclusive access to cutting-edge features, experimental game modes, and enhanced graphics that
+            are still in development. Help us shape the future of Roblox by providing valuable feedback and being part
+            of our testing community.</p>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>🚀 Early Access</h3>
+                <p>Be the first to try new features and updates before they're released to the public.</p>
+            </div>
+            <div class="feature-card">
+                <h3>✨ Exclusive Content</h3>
+                <p>Unlock beta-exclusive items, badges, and experiences not available anywhere else.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎮 Enhanced Performance</h3>
+                <p>Experience improved graphics, faster load times, and optimized gameplay.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💬 Direct Feedback</h3>
+                <p>Your voice matters! Share feedback directly with our development team.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h2>What Players Are Saying</h2>
+        <div class="review-container">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">A</div>
+                    <div class="review-name">Alex_Gaming</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Roblox Beta is incredible! The new features are mind-blowing and I love being
+                    able to test everything before it goes live. Definitely worth downloading!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">S</div>
+                    <div class="review-name">SkylerPro</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"As a longtime Roblox player, the beta version takes everything to the next
+                    level. The graphics improvements alone are worth it. Highly recommend!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">M</div>
+                    <div class="review-name">MegaBuilder22</div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Great experience overall! Some features are still being polished, but that's
+                    expected in beta. Love being part of the testing community."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">L</div>
+                    <div class="review-name">Luna_Star</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The exclusive content is amazing! I've unlocked so many beta-only items. Can't
+                    wait to see what new features come next!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">T</div>
+                    <div class="review-name">TechMaster</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Performance is so much better in the beta version. Everything runs smoother and
+                    looks better. This is the future of Roblox!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">R</div>
+                    <div class="review-name">RobloxKing</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"I love providing feedback and seeing my suggestions implemented. Being a beta
+                    tester makes me feel like I'm part of something special!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Roblox Beta. All rights reserved. | Experience the Future of Gaming</p>
+    </footer>
+
+    <!-- Fixed Social Icons -->
+    <a href="https://www.instagram.com" target="_blank" class="social-icon instagram-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+    </a>
+
+    <a href="mailto:contact@robloxbeta.com" class="social-icon gmail-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+        </svg>
+    </a>
+</body>
+
+</html>

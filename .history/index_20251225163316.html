@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Beta | Early Access Download</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Root Variables --- */
+        :root {
+            --primary-blue: #00a2ff;
+            --bg-dark: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-white: #ffffff;
+            --text-gray: #b1b1b1;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(10, 10, 10, 1)),
+                url('assets/cover.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .download-btn {
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            background-color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(0, 162, 255, 0.4);
+            text-transform: uppercase;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            background-color: #33b5ff;
+            box-shadow: 0 0 30px rgba(0, 162, 255, 0.6);
+        }
+
+        /* --- Game Description --- */
+        .description-section {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section-tag {
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .description-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .description-content {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* --- Player Reviews --- */
+        .reviews-section {
+            padding: 80px 10%;
+            background-color: #0f0f0f;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            border-color: var(--primary-blue);
+            transform: scale(1.02);
+        }
+
+        .stars {
+            color: #ffcc00;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-white);
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* --- Fixed Social Icons --- */
+        .social-icon {
+            position: fixed;
+            bottom: 30px;
+            width: 55px;
+            height: 55px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            z-index: 2000;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            transform: rotate(360deg);
+        }
+
+        .gmail-fixed {
+            left: 30px;
+        }
+
+        .insta-fixed {
+            right: 30px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .nav-title {
+                font-size: 1.1rem;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <nav>
+        <div class="nav-title">Roblox Beta</div>
+        <div class="nav-logo">
+            <img src="assets/logo.jpg" alt="Game Logo">
+        </div>
+    </nav>
+
+    <!-- Hero / Cover Section -->
+    <section class="hero">
+        <h1>UNLEASH YOUR CREATIVITY</h1>
+        <p>Join the next generation of play. Download the Roblox Beta client today and experience performance like never
+            before.</p>
+        <a href="https://google.com" class="download-btn">Download Roblox Beta</a>
+    </section>
+
+    <!-- Game Description Section -->
+    <section class="description-section">
+        <span class="section-tag">Early Access</span>
+        <h2>What is Roblox Beta?</h2>
+        <div class="description-content">
+            <p>
+                Roblox Beta is an exclusive testing environment designed for players who want to be at the forefront of
+                gaming technology.
+                By joining the Beta program, you get immediate access to experimental features, updated lighting
+                engines,
+                and UI improvements before they hit the global servers.
+                <br><br>
+                Your participation helps us shape the future of the platform. Play, test, and provide feedback
+                in a high-performance environment built for the most dedicated community members.
+            </p>
+        </div>
+    </section>
+
+    <!-- Player Feedback Section -->
+    <section class="reviews-section">
+        <h2 style="text-align: center; font-size: 2.5rem;">Player Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The performance on the Beta client is night and day. My frames are finally
+                    stable in heavy games!"</p>
+                <p class="reviewer-name">@BuildMaster_99</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"I love seeing the new UI updates before my friends. It feels much more modern
+                    and clean."</p>
+                <p class="reviewer-name">@Shadow_Quest</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <p class="review-text">"Great experience overall. A few minor bugs, but that's expected for a beta. The
+                    new shaders are beautiful."</p>
+                <p class="reviewer-name">@BloxVibes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Social Icons -->
+    <a href="mailto:yourgame@gmail.com" class="social-icon gmail-fixed" title="Email Us">
+        <i class="fa-solid fa-envelope"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" class="social-icon insta-fixed" title="Follow on Instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Roblox Beta Project. All rights reserved. This is a fan-made landing page for testing.</p>
+    </footer>
+
+</body>
+
+</html>
